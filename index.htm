@@ -155,6 +155,13 @@
             height: 30px;
             margin-right: 10px;
         }
+        /* Products display */
+        .initial-products {
+            display: grid;
+        }
+        .additional-products {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50" itemscope itemtype="http://schema.org/GroceryStore">
@@ -232,54 +239,24 @@
                 <i class="fas fa-drumstick-bite mr-2"></i> Nuestros productos de carnicería
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" itemscope itemtype="https://schema.org/ItemList">
-                <!-- Carnes de Res -->
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="products-container" itemscope itemtype="https://schema.org/ItemList">
+                <!-- Initial products - these will always be visible -->
+                <div class="initial-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Costilla de res</h3>
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Tilapia</h3>
                         <p class="text-sm text-gray-500" itemprop="description">Fresca del día</p>
                     </div>
                     <div class="flex justify-between items-center">
                         <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price">4000</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
                         </p>
-                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Costilla de res', 4000)">
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Tilapia', 3500)">
                             <i class="fas fa-plus mr-1"></i>Agregar
                         </button>
                     </div>
                 </div>
 
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                    <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Bistec de res (arreglado y normal)</h3>
-                        <p class="text-sm text-gray-500" itemprop="description">Corte premium</p>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price">5990</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
-                        </p>
-                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Bistec de res', 5990)">
-                            <i class="fas fa-plus mr-1"></i>Agregar
-                        </button>
-                    </div>
-                </div>
-
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                    <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Molida</h3>
-                        <p class="text-sm text-gray-500" itemprop="description">Carne molida de res</p>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price">4500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
-                        </p>
-                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Molida', 4500)">
-                            <i class="fas fa-plus mr-1"></i>Agregar
-                        </button>
-                    </div>
-                </div>
-
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="initial-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
                         <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Cecina</h3>
                         <p class="text-sm text-gray-500" itemprop="description">Corte especial</p>
@@ -294,7 +271,68 @@
                     </div>
                 </div>
 
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="initial-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Molida</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Carne molida de res</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">4500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Molida', 4500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="initial-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Costilla de res</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Fresca del día</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">4000</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Costilla de res', 4000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="initial-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Chuleta</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Arreglada y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Chuleta', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="initial-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Bistec de res</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Arreglado y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">5990</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Bistec de res', 5990)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional products - these will be hidden initially -->
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
                         <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Hígado</h3>
                         <p class="text-sm text-gray-500" itemprop="description">Fresco y seleccionado</p>
@@ -309,23 +347,7 @@
                     </div>
                 </div>
 
-                <!-- Carnes de Cerdo -->
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                    <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Chuleta (arreglada y normal)</h3>
-                        <p class="text-sm text-gray-500" itemprop="description">Chuleta de cerdo</p>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
-                        </p>
-                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Chuleta', 3500)">
-                            <i class="fas fa-plus mr-1"></i>Agregar
-                        </button>
-                    </div>
-                </div>
-
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
                         <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Chuleta ahumada</h3>
                         <p class="text-sm text-gray-500" itemprop="description">Sabor especial ahumado</p>
@@ -340,22 +362,22 @@
                     </div>
                 </div>
 
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Costilla de cerdo</h3>
-                        <p class="text-sm text-gray-500" itemprop="description">Arreglada y normal</p>
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Mondongo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Limpio y preparado</p>
                     </div>
                     <div class="flex justify-between items-center">
                         <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                            <span itemprop="price">2900</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
                         </p>
-                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Costilla de cerdo', 3500)">
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mondongo', 2900)">
                             <i class="fas fa-plus mr-1"></i>Agregar
                         </button>
                     </div>
                 </div>
 
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
                         <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pezuña de cerdo</h3>
                         <p class="text-sm text-gray-500" itemprop="description">Ideal para sopas</p>
@@ -370,8 +392,67 @@
                     </div>
                 </div>
 
-                <!-- Pollo -->
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Costilla de cerdo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Arreglada y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Costilla de cerdo', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Trocitos de cerdo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Cortes seleccionados</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3690</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Trocitos de cerdo', 3690)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Filet de cerdo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Arreglado y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3690</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Filet de cerdo', 3690)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Chorizo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Artesanal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Chorizo', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
                         <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pollo en trocitos</h3>
                         <p class="text-sm text-gray-500" itemprop="description">Cortes variados</p>
@@ -386,10 +467,25 @@
                     </div>
                 </div>
 
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pollo arreglado</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Listo para cocinar</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">4490</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pollo arreglado', 4490)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
                         <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Filet de pollo</h3>
-                        <p class="text-sm text-gray-500" itemprop="description">Limpio y preparado</p>
+                        <p class="text-sm text-gray-500" itemprop="description">Pechuga deshuesada</p>
                     </div>
                     <div class="flex justify-between items-center">
                         <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
@@ -401,17 +497,196 @@
                     </div>
                 </div>
 
-                <!-- Pescado -->
-                <div class="product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Tilapia</h3>
-                        <p class="text-sm text-gray-500" itemprop="description">Fresca del día</p>
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pechuga deshuesada</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Alta calidad</p>
                     </div>
                     <div class="flex justify-between items-center">
                         <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                            <span itemprop="price">4490</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
                         </p>
-                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Tilapia', 3500)">
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pechuga deshuesada', 4490)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pellejo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Para chicharrones</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">2500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pellejo', 2500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pollo con hueso picado</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Ideal para sopas</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">1790</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pollo con hueso picado', 1790)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Muslo entero</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">De pollo</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">1790</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Muslo entero', 1790)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Muslo de pollo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Seleccionado</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">2000</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Muslo de pollo', 2000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Alas</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">De pollo</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3000</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Alas', 3000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Pechuga con hueso</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">De pollo</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3000</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pechuga con hueso', 3000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Salchicha de pollo y res</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Especial</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">2450</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Salchicha de pollo y res', 2450)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Posta de cerdo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Corte especial</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3690</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Posta de cerdo', 3690)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Mortadela jamonada</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Premium</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3300</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mortadela jamonada', 3300)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Mortadela de pollo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Baja en grasa</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">2450</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mortadela de pollo', 2450)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Mortadela criolla</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Sabor tradicional</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">2450</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mortadela criolla', 2450)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-products product-card bg-white p-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Jamón de pavo</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Bajo en grasa</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">4990</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Jamón de pavo', 4990)">
                             <i class="fas fa-plus mr-1"></i>Agregar
                         </button>
                     </div>
@@ -780,9 +1055,21 @@
             }
         });
 
-        // Show more button functionality
-        showMoreBtn.addEventListener('click', () => {
-            alert('Esta funcionalidad mostraría todos los productos disponibles en el catálogo completo.');
+        // Show more button functionality - Fixed to actually show all products
+        showMoreBtn.addEventListener('click', function() {
+            // Get all elements with class 'additional-products'
+            const additionalProducts = document.querySelectorAll('.additional-products');
+            
+            // Toggle their display
+            additionalProducts.forEach(product => {
+                if (product.style.display === 'block') {
+                    product.style.display = 'none';
+                    showMoreBtn.textContent = 'Ver todos los productos';
+                } else {
+                    product.style.display = 'block';
+                    showMoreBtn.textContent = 'Ver menos productos';
+                }
+            });
         });
 
         // Place order button functionality
