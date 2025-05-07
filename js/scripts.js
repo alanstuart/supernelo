@@ -25,31 +25,55 @@ window.addEventListener('load', revealElements);
 
 // Featured products slider initialization
 document.addEventListener('DOMContentLoaded', function() {
-    new Swiper('.featured-products', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.featured-products', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
             },
-            1024: {
-                slidesPerView: 3,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
             }
-        }
-    });
+        });
+    }
+    
+    // Show/hide more products functionality
+    const viewAllCarnesBtn = document.getElementById('view-all-carnes');
+    const hideAllCarnesBtn = document.getElementById('hide-all-carnes');
+    const moreCarnesProducts = document.getElementById('more-carnes-products');
+    
+    if(viewAllCarnesBtn && hideAllCarnesBtn && moreCarnesProducts) {
+        viewAllCarnesBtn.addEventListener('click', function() {
+            moreCarnesProducts.classList.remove('hidden');
+            viewAllCarnesBtn.classList.add('hidden');
+            hideAllCarnesBtn.classList.remove('hidden');
+        });
+        
+        hideAllCarnesBtn.addEventListener('click', function() {
+            moreCarnesProducts.classList.add('hidden');
+            hideAllCarnesBtn.classList.add('hidden');
+            viewAllCarnesBtn.classList.remove('hidden');
+            
+            // Scroll back to the carnes section
+            document.getElementById('carnes-section').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 });
 
 // Search toggle
@@ -64,6 +88,7 @@ document.getElementById('search-toggle').addEventListener('click', function() {
 // Search functionality
 function searchProducts() {
     const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+    if (search    const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
     if (searchQuery === '') return;
     
     const productCards = document.querySelectorAll('.product-card');
@@ -326,205 +351,256 @@ cartButton.addEventListener('click', () => {
 });
 
 // Proceed to checkout button with enhanced UX
-proceedToCheckout.addEventListener('click', () => {
-    if (cart.length > 0) {
-        shoppingCart.classList.add('animate-slide-out');
-        
-        setTimeout(() => {
-            shoppingCart.classList.add('hidden');
-            shoppingCart.classList.remove('animate-slide-out');
-            
-            // Show order form with animation
-            orderForm.classList.remove('hidden');
-            orderForm.classList.add('animate-slide-in');
-            
-            checkoutSection.classList.remove('hidden');
-            checkoutSection.classList.add('animate-fade-in');
+if(proceedToCheckout) {
+    proceedToCheckout.addEventListener('click', () => {
+        if (cart.length > 0) {
+            shoppingCart.classList.add('animate-slide-out');
             
             setTimeout(() => {
-                orderForm.classList.remove('animate-slide-in');
-                checkoutSection.classList.remove('animate-fade-in');
+                shoppingCart.classList.add('hidden');
+                shoppingCart.classList.remove('animate-slide-out');
+                
+                // Show order form with animation
+                orderForm.classList.remove('hidden');
+                orderForm.classList.add('animate-slide-in');
+                
+                checkoutSection.classList.remove('hidden');
+                checkoutSection.classList.add('animate-fade-in');
+                
+                setTimeout(() => {
+                    orderForm.classList.remove('animate-slide-in');
+                    checkoutSection.classList.remove('animate-fade-in');
+                }, 300);
+                
+                // Set default date to today
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                let mm = today.getMonth() + 1;
+                let dd = today.getDate();
+                if (dd < 10) dd = '0' + dd;
+                if (mm < 10) mm = '0' + mm;
+                
+                // Set default date to tomorrow to ensure order preparation time
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const tYyyy = tomorrow.getFullYear();
+                let tMm = tomorrow.getMonth() + 1;
+                let tDd = tomorrow.getDate();
+                if (tDd < 10) tDd = '0' + tDd;
+                if (tMm < 10) tMm = '0' + tMm;
+                
+                document.getElementById('pickup-date').value = `${tYyyy}-${tMm}-${tDd}`;
+                document.getElementById('pickup-date').min = `${yyyy}-${mm}-${dd}`; // Can't pick a date in the past
+                
+                // Set default pickup time
+                document.getElementById('pickup-time').value = "10:00";
+                
+                // Scroll to order form
+                orderForm.scrollIntoView({ behavior: 'smooth' });
             }, 300);
-            
-            // Set default date to today
-            const today = new Date();
-            const yyyy = today.getFullYear();
-            let mm = today.getMonth() + 1;
-            let dd = today.getDate();
-            if (dd < 10) dd = '0' + dd;
-            if (mm < 10) mm = '0' + mm;
-            document.getElementById('pickup-date').value = `${yyyy}-${mm}-${dd}`;
-            
-            // Scroll to order form
-            orderForm.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-    }
-});
+        }
+    });
+}
 
 // View all products buttons functionality
-document.getElementById('view-all-carnes').addEventListener('click', function() {
-    window.location.href = 'carniceria.html';
-});
-document.getElementById('view-all-abarrotes').addEventListener('click', function() {
-    window.location.href = 'abarrotes.html';
-});
-document.getElementById('view-all-lacteos').addEventListener('click', function() {
-    window.location.href = 'lacteos.html';
-});
-document.getElementById('view-all-bebidas').addEventListener('click', function() {
-    window.location.href = 'bebidas.html';
-});
-document.getElementById('view-all-licores').addEventListener('click', function() {
-    window.location.href = 'licores.html';
-});
+const viewAllCarnesBtn = document.getElementById('view-all-carnes');
+if (viewAllCarnesBtn) {
+    viewAllCarnesBtn.addEventListener('click', function() {
+        const moreCarnesProducts = document.getElementById('more-carnes-products');
+        const hideAllCarnesBtn = document.getElementById('hide-all-carnes');
+        
+        if (moreCarnesProducts && hideAllCarnesBtn) {
+            moreCarnesProducts.classList.remove('hidden');
+            viewAllCarnesBtn.classList.add('hidden');
+            hideAllCarnesBtn.classList.remove('hidden');
+        }
+    });
+}
+
+const hideAllCarnesBtn = document.getElementById('hide-all-carnes');
+if (hideAllCarnesBtn) {
+    hideAllCarnesBtn.addEventListener('click', function() {
+        const moreCarnesProducts = document.getElementById('more-carnes-products');
+        
+        if (moreCarnesProducts && viewAllCarnesBtn) {
+            moreCarnesProducts.classList.add('hidden');
+            hideAllCarnesBtn.classList.add('hidden');
+            viewAllCarnesBtn.classList.remove('hidden');
+            
+            // Scroll back to the carnes section
+            document.getElementById('carnes-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
 
 // Place order button functionality - Enhanced with validation and feedback
-placeOrderBtn.addEventListener('click', () => {
-    // Get form values
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const pickupDate = document.getElementById('pickup-date').value;
-    const pickupTime = document.getElementById('pickup-time').value;
-    const cardNumber = document.getElementById('card-number').value;
-    const cardExpiry = document.getElementById('expiry').value;
-    const cardCvv = document.getElementById('cvv').value;
-    const cardHolder = document.getElementById('card-holder').value;
-    
-    // Basic validation with helpful feedback
-    if (!name) {
-        showNotification('Por favor ingrese su nombre');
-        document.getElementById('name').focus();
-        return;
-    }
-    if (!phone) {
-        showNotification('Por favor ingrese su teléfono');
-        document.getElementById('phone').focus();
-        return;
-    }
-    if (!pickupDate) {
-        showNotification('Por favor seleccione fecha de recogida');
-        document.getElementById('pickup-date').focus();
-        return;
-    }
-    if (!pickupTime) {
-        showNotification('Por favor seleccione hora de recogida');
-        document.getElementById('pickup-time').focus();
-        return;
-    }
-    if (!cardNumber || cardNumber.replace(/\s/g, '').length < 16) {
-        showNotification('Por favor ingrese un número de tarjeta válido');
-        document.getElementById('card-number').focus();
-        return;
-    }
-    if (!cardExpiry) {
-        showNotification('Por favor ingrese fecha de expiración');
-        document.getElementById('expiry').focus();
-        return;
-    }
-    if (!cardCvv) {
-        showNotification('Por favor ingrese el código CVV');
-        document.getElementById('cvv').focus();
-        return;
-    }
-    if (!cardHolder) {
-        showNotification('Por favor ingrese el nombre del titular');
-        document.getElementById('card-holder').focus();
-        return;
-    }
-    
-    // Format date and time for display
-    const formattedDate = new Date(pickupDate).toLocaleDateString('es-CR');
-    const timeValue = pickupTime;
-    
-    // Hide order form and show loading indicator
-    orderForm.classList.add('animate-fade-out');
-    checkoutSection.classList.add('animate-fade-out');
-    
-    setTimeout(() => {
-        orderForm.classList.add('hidden');
-        checkoutSection.classList.add('hidden');
+if (placeOrderBtn) {
+    placeOrderBtn.addEventListener('click', () => {
+        // Get form values
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const sucursal = document.getElementById('sucursal').value;
+        const pickupDate = document.getElementById('pickup-date').value;
+        const pickupTime = document.getElementById('pickup-time').value;
+        const cardNumber = document.getElementById('card-number').value;
+        const cardExpiry = document.getElementById('expiry').value;
+        const cardCvv = document.getElementById('cvv').value;
+        const cardHolder = document.getElementById('card-holder').value;
         
-        // Show "Processing" indicator
-        const processingIndicator = document.createElement('div');
-        processingIndicator.className = 'text-center py-10';
-        processingIndicator.innerHTML = `
-            <div class="loader mx-auto mb-4"></div>
-            <p class="text-gray-600">Procesando su pedido...</p>
-        `;
-        orderForm.parentNode.insertBefore(processingIndicator, orderForm);
+        // Basic validation with helpful feedback
+        if (!name) {
+            showNotification('Por favor ingrese su nombre');
+            document.getElementById('name').focus();
+            return;
+        }
+        if (!phone) {
+            showNotification('Por favor ingrese su teléfono');
+            document.getElementById('phone').focus();
+            return;
+        }
+        if (!sucursal) {
+            showNotification('Por favor seleccione una sucursal');
+            document.getElementById('sucursal').focus();
+            return;
+        }
+        if (!pickupDate) {
+            showNotification('Por favor seleccione fecha de recogida');
+            document.getElementById('pickup-date').focus();
+            return;
+        }
+        if (!pickupTime) {
+            showNotification('Por favor seleccione hora de recogida');
+            document.getElementById('pickup-time').focus();
+            return;
+        }
+        if (!cardNumber || cardNumber.replace(/\s/g, '').length < 16) {
+            showNotification('Por favor ingrese un número de tarjeta válido');
+            document.getElementById('card-number').focus();
+            return;
+        }
+        if (!cardExpiry) {
+            showNotification('Por favor ingrese fecha de expiración');
+            document.getElementById('expiry').focus();
+            return;
+        }
+        if (!cardCvv) {
+            showNotification('Por favor ingrese el código CVV');
+            document.getElementById('cvv').focus();
+            return;
+        }
+        if (!cardHolder) {
+            showNotification('Por favor ingrese el nombre del titular');
+            document.getElementById('card-holder').focus();
+            return;
+        }
         
-        // Simulate processing delay
+        // Format date and time for display
+        const formattedDate = new Date(pickupDate).toLocaleDateString('es-CR');
+        const timeValue = pickupTime;
+        
+        // Hide order form and show loading indicator
+        orderForm.classList.add('animate-fade-out');
+        checkoutSection.classList.add('animate-fade-out');
+        
         setTimeout(() => {
-            // Remove processing indicator
-            processingIndicator.remove();
+            orderForm.classList.add('hidden');
+            checkoutSection.classList.add('hidden');
             
-            // Generate random order number
-            const orderNum = Math.floor(100000 + Math.random() * 900000);
-            orderNumber.textContent = `Número de pedido: #${orderNum}`;
+            // Show "Processing" indicator
+            const processingIndicator = document.createElement('div');
+            processingIndicator.className = 'text-center py-10';
+            processingIndicator.innerHTML = `
+                <div class="loader mx-auto mb-4"></div>
+                <p class="text-gray-600">Procesando su pedido...</p>
+            `;
+            orderForm.parentNode.insertBefore(processingIndicator, orderForm);
             
-            // Show pickup time in confirmation
-            pickupConfirmation.innerHTML = `<p><strong>Fecha de recogida:</strong> ${formattedDate}</p>
-                                         <p><strong>Hora de recogida:</strong> ${timeValue}</p>`;
-            
-            // Show confirmation with animation
-            orderConfirmation.classList.remove('hidden');
-            orderConfirmation.classList.add('animate-fade-in');
-            
-            // Scroll to confirmation
-            orderConfirmation.scrollIntoView({ behavior: 'smooth' });
-            
-            // Reset cart
-            cart = [];
-            updateCart();
-        }, 1500);
-    }, 300);
-});
+            // Simulate processing delay
+            setTimeout(() => {
+                // Remove processing indicator
+                processingIndicator.remove();
+                
+                // Generate random order number
+                const orderNum = Math.floor(100000 + Math.random() * 900000);
+                orderNumber.textContent = `Número de pedido: #${orderNum}`;
+                
+                // Show pickup time in confirmation
+                pickupConfirmation.innerHTML = `<p><strong>Fecha de recogida:</strong> ${formattedDate}</p>
+                                             <p><strong>Hora de recogida:</strong> ${timeValue}</p>
+                                             <p><strong>Sucursal:</strong> ${document.getElementById('sucursal').options[document.getElementById('sucursal').selectedIndex].text}</p>`;
+                
+                // Show confirmation with animation
+                orderConfirmation.classList.remove('hidden');
+                orderConfirmation.classList.add('animate-fade-in');
+                
+                // Scroll to confirmation
+                orderConfirmation.scrollIntoView({ behavior: 'smooth' });
+                
+                // Reset cart
+                cart = [];
+                updateCart();
+            }, 1500);
+        }, 300);
+    });
+}
 
 // Initialize cart
 updateCart();
 
 // Basic card input formatting - enhanced with validation feedback
-document.getElementById('card-number').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 16) value = value.slice(0, 16);
-    
-    // Format with spaces
-    let formattedValue = '';
-    for (let i = 0; i < value.length; i++) {
-        if (i > 0 && i % 4 === 0) {
-            formattedValue += ' ';
+const cardNumberInput = document.getElementById('card-number');
+if (cardNumberInput) {
+    cardNumberInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 16) value = value.slice(0, 16);
+        
+        // Format with spaces
+        let formattedValue = '';
+        for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) {
+                formattedValue += ' ';
+            }
+            formattedValue += value[i];
         }
-        formattedValue += value[i];
-    }
-    
-    e.target.value = formattedValue;
-    
-    // Visual feedback based on card length
-    if (value.length === 16) {
-        e.target.classList.add('border-green-500');
-    } else {
-        e.target.classList.remove('border-green-500');
-    }
-});
+        
+        e.target.value = formattedValue;
+        
+        // Visual feedback based on card length
+        if (value.length === 16) {
+            e.target.classList.add('border-green-500');
+        } else {
+            e.target.classList.remove('border-green-500');
+        }
+    });
+}
 
-document.getElementById('expiry').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 4) value = value.slice(0, 4);
-    
-    if (value.length > 2) {
-        e.target.value = value.slice(0, 2) + '/' + value.slice(2);
-    } else {
-        e.target.value = value;
-    }
-});
+const expiryInput = document.getElementById('expiry');
+if (expiryInput) {
+    expiryInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 4) value = value.slice(0, 4);
+        
+        if (value.length > 2) {
+            e.target.value = value.slice(0, 2) + '/' + value.slice(2);
+        } else {
+            e.target.value = value;
+        }
+    });
+}
 
-document.getElementById('cvv').addEventListener('input', function(e) {
-    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
-});
+const cvvInput = document.getElementById('cvv');
+if (cvvInput) {
+    cvvInput.addEventListener('input', function(e) {
+        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+    });
+}
 
 // Set pickup date minimum to today
-const today = new Date().toISOString().split('T')[0];
-document.getElementById('pickup-date').setAttribute('min', today);
+const pickupDateInput = document.getElementById('pickup-date');
+if (pickupDateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    pickupDateInput.setAttribute('min', today);
+}
 
 // Add CSS rule for animations
 const styleEl = document.createElement('style');
