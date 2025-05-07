@@ -93,12 +93,6 @@ function searchProducts() {
     const productCards = document.querySelectorAll('.product-card');
     let hasResults = false;
     
-    // Resto de la función...
-}
-
-    const productCards = document.querySelectorAll('.product-card');
-    let hasResults = false;
-    
     productCards.forEach(card => {
         const productName = card.querySelector('h3').textContent.toLowerCase();
         const productDesc = card.querySelector('p').textContent.toLowerCase();
@@ -403,37 +397,6 @@ if(proceedToCheckout) {
                 // Scroll to order form
                 orderForm.scrollIntoView({ behavior: 'smooth' });
             }, 300);
-        }
-    });
-}
-
-// View all products buttons functionality
-const viewAllCarnesBtn = document.getElementById('view-all-carnes');
-if (viewAllCarnesBtn) {
-    viewAllCarnesBtn.addEventListener('click', function() {
-        const moreCarnesProducts = document.getElementById('more-carnes-products');
-        const hideAllCarnesBtn = document.getElementById('hide-all-carnes');
-        
-        if (moreCarnesProducts && hideAllCarnesBtn) {
-            moreCarnesProducts.classList.remove('hidden');
-            viewAllCarnesBtn.classList.add('hidden');
-            hideAllCarnesBtn.classList.remove('hidden');
-        }
-    });
-}
-
-const hideAllCarnesBtn = document.getElementById('hide-all-carnes');
-if (hideAllCarnesBtn) {
-    hideAllCarnesBtn.addEventListener('click', function() {
-        const moreCarnesProducts = document.getElementById('more-carnes-products');
-        
-        if (moreCarnesProducts && viewAllCarnesBtn) {
-            moreCarnesProducts.classList.add('hidden');
-            hideAllCarnesBtn.classList.add('hidden');
-            viewAllCarnesBtn.classList.remove('hidden');
-            
-            // Scroll back to the carnes section
-            document.getElementById('carnes-section').scrollIntoView({ behavior: 'smooth' });
         }
     });
 }
