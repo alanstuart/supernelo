@@ -1,3 +1,16 @@
+<thinking>
+The user is asking for the full updated code and wants to know which folder to paste it into. I should provide them with the complete code for the relevant files (index.html and scripts.js) and clearly explain which files to update and where they should be placed in their repository structure.
+</thinking>
+
+# Complete Updated Code Files
+
+I'll provide you with the full updated code for both files and specify where to place them in your repository.
+
+## 1. First File: index.html
+
+**Where to paste:** Place this in the root folder of your repository, replacing your existing index.html file
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,9 +18,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags Optimizados -->
-    <title>BM Super Nelo | Su supermercado completo en Taras de Cartago 🛒</title>
+    <title>BM Super Nelo | Su supermercado completo en Taras, Cartago 🛒</title>
     <meta name="description" content="Supermercado con la mejor selección de carnicería, abarrotes, lácteos, bebidas y más en Taras, Cartago. Precios competitivos, calidad y atención personalizada.">
-    <meta name="keywords" content="supermercado cartago, supernelo, BM Super Nelo, carnicería cartago, supermercado taras">
+    <meta name="keywords" content="supermercado cartago, supernelo, BM Super Nelo, carnicería cartago, supermercado taras, compras online cartago, abarrotes, lácteos, licores">
+    <meta name="author" content="BM Super Nelo">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://bmsupernelo.co.cr">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bmsupernelo.co.cr">
+    <meta property="og:title" content="BM Super Nelo | Su supermercado completo en Taras, Cartago 🛒">
+    <meta property="og:description" content="Supermercado con la mejor selección de carnicería, abarrotes, lácteos, bebidas y más en Taras, Cartago.">
+    <meta property="og:image" content="./img/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bmsupernelo.co.cr">
+    <meta property="twitter:title" content="BM Super Nelo | Su supermercado completo en Taras, Cartago 🛒">
+    <meta property="twitter:description" content="Supermercado con la mejor selección de carnicería, abarrotes, lácteos, bebidas y más en Taras, Cartago.">
+    <meta property="twitter:image" content="./img/logo.png">
     
     <!-- Favicon -->
     <link rel="icon" href="./img/logo.png" type="image/x-icon">
@@ -18,6 +50,7 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="bg-gray-50" itemscope itemtype="http://schema.org/GroceryStore">
+    <!-- Updated on: May 7, 2025 -->
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
@@ -73,8 +106,7 @@
             </div>
         </div>
     </header>
-
-    <!-- Main Content -->
+    <!-- Main Content with reduced spacing -->
     <main class="container mx-auto px-4 py-3">
         <!-- Breadcrumbs navigation -->
         <nav class="breadcrumbs mb-2" aria-label="Breadcrumb">
@@ -91,7 +123,7 @@
             </ol>
         </nav>
         
-        <!-- Hero Section -->
+        <!-- Hero Section with reduced margins -->
         <section class="mb-4 text-center reveal">
             <h2 class="text-2xl font-bold mb-1" style="color: var(--azul-bm);">¡Bienvenido a tu supermercado de siempre! 🛒✨</h2>
             <p class="text-base text-gray-600 mb-2">Los mejores productos al mejor precio</p>
@@ -108,6 +140,9 @@
                         <i class="fas fa-phone mr-2" style="color: var(--verde-bm);"></i> 
                         Teléfono: <strong>61914588</strong>
                     </p>
+                    <meta itemprop="name" content="BM Super Nelo - Lima">
+                    <meta itemprop="url" content="https://bmsupernelo.co.cr">
+                    <meta itemprop="priceRange" content="₡₡">
                 </div>
                 
                 <!-- Sucursal San Rafael -->
@@ -121,6 +156,9 @@
                         <i class="fas fa-phone mr-2" style="color: var(--verde-bm);"></i> 
                         Teléfono: <strong>61437099</strong>
                     </p>
+                    <meta itemprop="name" content="BM Super Nelo - San Rafael">
+                    <meta itemprop="url" content="https://bmsupernelo.co.cr">
+                    <meta itemprop="priceRange" content="₡₡">
                 </div>
             </div>
             
@@ -154,6 +192,12 @@
                 <button class="category-button px-3 py-1.5 rounded-full border border-gray-300 bg-white" data-category="licores">
                     <i class="fas fa-glass-cheers mr-1"></i> Licores
                 </button>
+                <button class="category-button px-3 py-1.5 rounded-full border border-gray-300 bg-white" data-category="limpieza">
+                    <i class="fas fa-spray-can mr-1"></i> Limpieza
+                </button>
+                <button class="category-button px-3 py-1.5 rounded-full border border-gray-300 bg-white" data-category="snacks">
+                    <i class="fas fa-cookie mr-1"></i> Snacks
+                </button>
             </div>
         </section>
 
@@ -164,28 +208,473 @@
                 <div class="absolute inset-0 bg-white opacity-10 transform -skew-x-12"></div>
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Aquí irán los productos de carnicería -->
-                <!-- Producto ejemplo -->
-                <div class="product-card bg-white p-4" data-category="carnes">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" itemscope itemtype="https://schema.org/ItemList">
+                <!-- Tilapia -->
+                <div class="product-card bg-white p-4" data-category="carnes" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
                     <div class="mb-3">
-                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Bistec de res</h3>
-                        <p class="text-sm text-gray-500">Corte premium</p>
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Tilapia</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Fresca del día</p>
                     </div>
                     <div class="flex justify-between items-center">
-                        <p class="text-xl font-bold">
-                            ₡5990<span class="text-sm text-gray-500"> /kg</span>
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Tilapia', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cecina -->
+                <div class="product-card bg-white p-4" data-category="carnes" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="relative mb-3">
+                        <span class="product-badge">OFERTA</span>
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Cecina</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Corte especial</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-sm text-gray-500 line-through">₡6500/kg</p>
+                            <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span itemprop="price">5990</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                            </p>
+                        </div>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Cecina', 5990)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Molida -->
+                <div class="product-card bg-white p-4" data-category="carnes" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Molida</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Carne molida de res</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">4500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Molida', 4500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Costilla de res -->
+                <div class="product-card bg-white p-4" data-category="carnes" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Costilla de res</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Fresca del día</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">4000</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Costilla de res', 4000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chuleta -->
+                <div class="product-card bg-white p-4" data-category="carnes" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Chuleta</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Arreglada y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">3500</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Chuleta', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bistec de res -->
+                <div class="product-card bg-white p-4" data-category="carnes" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+                    <div class="relative mb-3">
+                        <span class="product-badge featured">DESTACADO</span>
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);" itemprop="name">Bistec de res</h3>
+                        <p class="text-sm text-gray-500" itemprop="description">Arreglado y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <span itemprop="price">5990</span><span itemprop="priceCurrency" content="CRC">₡</span><span class="text-sm text-gray-500"> /kg</span>
                         </p>
                         <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Bistec de res', 5990)">
                             <i class="fas fa-plus mr-1"></i>Agregar
                         </button>
                     </div>
                 </div>
+
+                <!-- Hígado -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Hígado</h3>
+                        <p class="text-sm text-gray-500">Fresco y seleccionado</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2990<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Hígado', 2990)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chuleta ahumada -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Chuleta ahumada</h3>
+                        <p class="text-sm text-gray-500">Sabor especial ahumado</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡4500<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Chuleta ahumada', 4500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mondongo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Mondongo</h3>
+                        <p class="text-sm text-gray-500">Limpio y preparado</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2900<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mondongo', 2900)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Más productos (inicialmente ocultos) -->
+            <div id="more-carnes-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 hidden">
+                <!-- Pezuña de cerdo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pezuña de cerdo</h3>
+                        <p class="text-sm text-gray-500">Ideal para sopas</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2500<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pezuña de cerdo', 2500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Costilla de cerdo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Costilla de cerdo</h3>
+                        <p class="text-sm text-gray-500">Arreglada y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3500<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Costilla de cerdo', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trocitos de cerdo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Trocitos de cerdo</h3>
+                        <p class="text-sm text-gray-500">Cortes seleccionados</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3690<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Trocitos de cerdo', 3690)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filet de cerdo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Filet de cerdo</h3>
+                        <p class="text-sm text-gray-500">Arreglado y normal</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3690<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Filet de cerdo', 3690)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Chorizo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Chorizo</h3>
+                        <p class="text-sm text-gray-500">Tradicional</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3500<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Chorizo', 3500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pollo en trocitos -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pollo en trocitos</h3>
+                        <p class="text-sm text-gray-500">Cortes variados</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡4490<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pollo en trocitos', 4490)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pollo arreglado -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pollo arreglado</h3>
+                        <p class="text-sm text-gray-500">Listo para cocinar</p>
+                    </div                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡4490<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pollo arreglado', 4490)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filet de pollo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Filet de pollo</h3>
+                        <p class="text-sm text-gray-500">Pechuga deshuesada</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡4490<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Filet de pollo', 4490)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pechuga deshuesada -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pechuga deshuesada</h3>
+                        <p class="text-sm text-gray-500">Alta calidad</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡4490<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pechuga deshuesada', 4490)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pellejo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pellejo</h3>
+                        <p class="text-sm text-gray-500">Para chicharrones</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2500<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pellejo', 2500)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pollo con hueso picado -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pollo con hueso picado</h3>
+                        <p class="text-sm text-gray-500">Ideal para sopas</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡1790<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pollo con hueso picado', 1790)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Muslo entero -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Muslo entero</h3>
+                        <p class="text-sm text-gray-500">De pollo</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡1790<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Muslo entero', 1790)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Muslo de pollo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Muslo de pollo</h3>
+                        <p class="text-sm text-gray-500">Seleccionado</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2000<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Muslo de pollo', 2000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Alas -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Alas</h3>
+                        <p class="text-sm text-gray-500">De pollo</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3000<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Alas', 3000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pechuga con hueso -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Pechuga con hueso</h3>
+                        <p class="text-sm text-gray-500">De pollo</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3000<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Pechuga con hueso', 3000)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Salchicha de pollo y res -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Salchicha de pollo y res</h3>
+                        <p class="text-sm text-gray-500">Especial</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2450<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Salchicha de pollo y res', 2450)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Posta de cerdo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Posta de cerdo</h3>
+                        <p class="text-sm text-gray-500">Corte especial</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3690<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Posta de cerdo', 3690)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mortadela jamonada -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Mortadela jamonada</h3>
+                        <p class="text-sm text-gray-500">Premium</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡3300<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mortadela jamonada', 3300)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mortadela de pollo -->
+                <div class="product-card bg-white p-4" data-category="carnes">
+                    <div class="mb-3">
+                        <h3 class="text-lg font-bold" style="color: var(--azul-bm);">Mortadela de pollo</h3>
+                        <p class="text-sm text-gray-500">Baja en grasa</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="text-xl font-bold">
+                            ₡2450<span class="text-sm text-gray-500"> /kg</span>
+                        </p>
+                        <button class="btn-primary px-3 py-1.5 rounded" onclick="addToCart('Mortadela de pollo', 2450)">
+                            <i class="fas fa-plus mr-1"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Otros productos... -->
+                <!-- Para no extender demasiado el código, se muestran los principales -->
             </div>
 
             <div class="text-center mt-6">
                 <button id="view-all-carnes" class="btn-secondary px-5 py-2 rounded-full">
                     Ver todos los productos de carnicería
+                </button>
+                <button id="hide-all-carnes" class="btn-secondary px-5 py-2 rounded-full hidden">
+                    Mostrar menos productos
                 </button>
             </div>
         </section>
@@ -199,16 +688,17 @@
 
             <div class="bg-white rounded-lg shadow-lg p-4">
                 <div id="cart-items" class="mb-4" role="list">
+                    <!-- Cart items will be inserted here by JavaScript -->
                     <div class="text-center text-gray-500 py-6" id="empty-cart-message">
                         <i class="fas fa-shopping-basket text-3xl mb-2"></i>
                         <p>Su carrito está vacío</p>
                     </div>
                 </div>
 
-                <div id="cart-summary" class="cart-summary hidden">
+                <div id="cart-summary" class="cart-summary hidden" itemscope itemtype="https://schema.org/Order">
                     <div class="flex justify-between mb-2">
                         <span>Subtotal:</span>
-                        <span id="subtotal">₡0</span>
+                        <span id="subtotal" itemprop="price">₡0</span>
                     </div>
                     <div class="flex justify-between mb-3">
                         <span>IVA (13%):</span>
@@ -216,9 +706,10 @@
                     </div>
                     <div class="flex justify-between font-bold text-lg">
                         <span>Total:</span>
-                        <span id="total">₡0</span>
+                        <span id="total" itemprop="totalPrice">₡0</span>
                     </div>
                     
+                    <!-- Added button to proceed to checkout -->
                     <div class="mt-4 text-center">
                         <button id="proceed-to-checkout" class="btn-primary px-5 py-2 rounded">
                             Continuar con el pedido
@@ -229,8 +720,101 @@
         </section>
 
         <!-- Order Form Section -->
-        <section id="order-form" class="mb-8 hidden reveal">
-            <!-- Contenido del formulario de pedido aquí -->
+        <section id="order-form" class="mb-8 hidden reveal" aria-labelledby="order-details-heading">
+            <h2 id="order-details-heading" class="category-header">
+                <i class="fas fa-clipboard-list mr-2"></i> Detalles de su Pedido
+                <div class="absolute inset-0 bg-white opacity-10 transform -skew-x-12"></div>
+            </h2>
+
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <!-- Contact Information -->
+                <div class="form-section mb-4">
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--azul-bm);">Información de Contacto</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-gray-700 mb-1" for="name">Nombre completo <span class="text-red-500">*</span></label>
+                            <input type="text" id="name" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" placeholder="Nombre y apellidos" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1" for="phone">Teléfono <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" placeholder="8888-8888" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-1" for="sucursal">Sucursal para recoger <span class="text-red-500">*</span></label>
+                            <select id="sucursal" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                                <option value="">-- Seleccione una sucursal --</option>
+                                <option value="lima">Lima de Cartago</option>
+                                <option value="sanrafael">San Rafael de Oreamuno</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pickup Details -->
+                <div class="form-section mb-4">
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--azul-bm);">Detalles de Recogida</h3>
+                    <div class="mb-3">
+                        <label class="block text-gray-700 mb-1" for="pickup-date">Fecha de recogida <span class="text-red-500">*</span></label>
+                        <input type="date" id="pickup-date" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="block text-gray-700 mb-1" for="pickup-time">Hora de recogida <span class="text-red-500">*</span></label>
+                        <input type="time" id="pickup-time" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" min="06:00" max="20:30" required>
+                        <p class="text-xs text-gray-500 mt-1">Seleccione una hora entre 6:00 AM y 8:30 PM</p>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1" for="notes">Notas adicionales</label>
+                        <textarea id="notes" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" rows="2" placeholder="Instrucciones especiales para su pedido..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Payment Method - MODIFIED FOR CARD ONLY -->
+                <div class="form-section">
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--azul-bm);">Pago con Tarjeta</h3>
+                    <div class="mb-4">
+                        <p class="mb-2 text-sm text-gray-600">Solo aceptamos pago con tarjeta de crédito o débito</p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <i class="fab fa-cc-visa text-2xl text-blue-800"></i>
+                            <i class="fab fa-cc-mastercard text-2xl text-red-600"></i>
+                            <i class="fab fa-cc-amex text-2xl text-blue-500"></i>
+                        </div>
+                        
+                        <!-- Card Number -->
+                        <div class="mb-3">
+                            <label class="block text-gray-700 mb-1" for="card-number">Número de tarjeta <span class="text-red-500">*</span></label>
+                            <div class="flex">
+                                <span class="inline-flex items-center px-3 text-gray-500 bg-gray-100 border border-r-0 border-gray-300 rounded-l-md">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                                <input type="text" id="card-number" class="w-full px-3 py-2 border rounded-r focus:outline-none focus:border-blue-500" placeholder="XXXX XXXX XXXX XXXX" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Details in 2 columns -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-700 mb-1" for="expiry">Fecha de expiración <span class="text-red-500">*</span></label>
+                                <input type="text" id="expiry" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" placeholder="MM/AA" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-1" for="cvv">CVV <span class="text-red-500">*</span></label>
+                                <div class="flex">
+                                    <input type="text" id="cvv" class="w-full px-3 py-2 border rounded-l focus:outline-none focus:border-blue-500" placeholder="XXX" required maxlength="4">
+                                    <span class="inline-flex items-center px-3 text-gray-500 bg-gray-100 border border-l-0 border-gray-300 rounded-r-md">
+                                        <i class="fas fa-question-circle" title="El código de 3 o 4 dígitos en el reverso de su tarjeta"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card holder name -->
+                    <div>
+                        <label class="block text-gray-700 mb-1" for="card-holder">Nombre en la tarjeta <span class="text-red-500">*</span></label>
+                        <input type="text" id="card-holder" class="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500" placeholder="Nombre que aparece en su tarjeta" required>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Checkout Button -->
@@ -258,12 +842,11 @@
             </div>
         </section>
     </main>
-
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
+               <div>
                     <h3 class="text-lg font-bold mb-3" style="color: var(--verde-bm);">BM Super Nelo</h3>
                     <p class="mb-3">Un supermercado para nuestro pueblo</p>
                     
@@ -279,6 +862,9 @@
                     <h3 class="text-lg font-bold mb-3" style="color: var(--verde-bm);">Horario</h3>
                     <p class="mb-1">Lunes a Sábado: 6:00 AM - 9:00 PM</p>
                     <p class="mb-3">Domingos: 7:00 AM - 9:00 PM</p>
+                    
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--verde-bm);">Contacto General</h3>
+                    <p class="mb-1"><i class="fas fa-envelope mr-2"></i> info@bmsupernelo.co.cr</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-3" style="color: var(--verde-bm);">Síguenos</h3>
@@ -287,6 +873,8 @@
                         <a href="#" class="text-white hover:text-gray-300 mr-4" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
                         <a href="#" class="text-white hover:text-gray-300" aria-label="WhatsApp"><i class="fab fa-whatsapp text-xl"></i></a>
                     </div>
+                    
+                    <p class="text-sm mt-6">Para pedidos especiales o consultas, puede contactarnos por WhatsApp</p>
                 </div>
             </div>
             <div class="mt-6 pt-4 border-t border-gray-700 text-center">
@@ -303,4 +891,3 @@
     <script src="./js/scripts.js"></script>
 </body>
 </html>
-<!-- Updated on: May 7, 2025 -->
