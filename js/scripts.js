@@ -88,9 +88,14 @@ document.getElementById('search-toggle').addEventListener('click', function() {
 // Search functionality
 function searchProducts() {
     const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
-    if (search    const searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
     if (searchQuery === '') return;
     
+    const productCards = document.querySelectorAll('.product-card');
+    let hasResults = false;
+    
+    // Resto de la función...
+}
+
     const productCards = document.querySelectorAll('.product-card');
     let hasResults = false;
     
